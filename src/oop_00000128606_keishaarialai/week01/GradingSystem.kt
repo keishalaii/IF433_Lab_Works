@@ -1,8 +1,8 @@
 package oop_00000128606_keishaarialai.week01
 
 fun main(){
-    var name: String = "Keisha Lai"
-    var score: Int = 80
+    var name = "Keisha Lai"
+    var score = 80
 
-    println("Nama: " + name + ", Nilai: " + score)
+    println("Nama: $name, Nilai: $score")
 }
