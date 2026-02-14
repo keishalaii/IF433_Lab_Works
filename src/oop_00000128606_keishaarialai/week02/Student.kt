@@ -1,6 +1,6 @@
 package oop_00000128606_keishaarialai.week02
 
-class Student (val name: String, val nim: String, var major: String) {
+class Student (val name: String, val nim: String, var major: String, var gpa: Double = 0.0) {
     init {
         //cek panjang nim
         if (nim.length != 5) {
