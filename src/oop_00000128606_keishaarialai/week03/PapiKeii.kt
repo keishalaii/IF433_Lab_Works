@@ -8,6 +8,15 @@ open class PapiKeii { //pakai open utnuk membuat anak baru
     private var umurValid: Boolean = true //suapaya gak ke print 35 nya
     protected var gaji: Int = 10000 //protected artinya yg bisa akses cuma yg berada di class itu sendiri (class turunan)
 
+    public var uangJajan: Int = 0
+
+        set(value) {
+            if (value < 0) {
+                println("masa uang jajan 0 atau minus :(")
+            } else
+                field = value
+        }
+
     fun set_nama(namaBaru: String) {
         if (namaBaru.isBlank()) {
             println("Eh nama gaboleh kosong")
@@ -51,4 +60,5 @@ fun main() {
     kei.dapetin_gajiPapi()
 
     println("Nama Ayah: ${papi.get_nama()}\nUmur Ayah: ${papi.get_umur()}\nGaji Ayah: ${kei.dapetin_gajiPapi()}")
+    kei.uangJajan = -10000
 }
