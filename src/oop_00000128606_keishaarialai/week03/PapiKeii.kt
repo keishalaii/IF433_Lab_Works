@@ -2,10 +2,11 @@ package oop_00000128606_keishaarialai.week03
 
 //W3_TheoryPraktek
 
-class PapiKeii {
+open class PapiKeii { //pakai open utnuk membuat anak baru
     private var nama: String = "Belum tau"
     private var umur: Int = 35
-    private var umurValid: Boolean = true
+    private var umurValid: Boolean = true //suapaya gak ke print 35 nya
+    protected var gaji: Int = 10000 //protected artinya yg bisa akses cuma yg berada di class itu sendiri (class turunan)
 
     fun set_nama(namaBaru: String) {
         if (namaBaru.isBlank()) {
@@ -35,10 +36,19 @@ class PapiKeii {
     }
 }
 
+class AnakPapii: PapiKeii() {
+    fun dapetin_gajiPapi(): Int{
+        return this.gaji + 25000 //kalo mau ditambah berapa gitu
+    }
+}
 
 fun main() {
     var papi = PapiKeii()
     papi.set_nama("Lai")
-    papi.set_umur(-7)
-    println("Nama ayah kamu ${papi.get_nama()} Umur-nya ${papi.get_umur()}") //bisa pake (+ papi.nama) juga
+    papi.set_umur(55)
+
+    var kei = AnakPapii()
+    kei.dapetin_gajiPapi()
+
+    println("Nama Ayah: ${papi.get_nama()}\nUmur Ayah: ${papi.get_umur()}\nGaji Ayah: ${kei.dapetin_gajiPapi()}")
 }
