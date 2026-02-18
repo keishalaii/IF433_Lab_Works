@@ -5,9 +5,9 @@ class Employee (val name: String) {
         set(value) {
             if (value < 0) {
                 println("ERROR: Gaji tidak boleh negatif! Di-set ke 0.")
-                field = 0 // gunakan field, bukan this.salary
+                field = 0
             } else {
-                field = value // gunakan field untuk assign nilai asli
+                field = value
             }
         }
 
@@ -22,7 +22,6 @@ class Employee (val name: String) {
         println("Karyawan: $name, Rating: $performanceRating")
     }
 
-    //pajak dihitung dari 10% gaji saat ini
     val tax: Double
         get() = salary * 0.1
 }
