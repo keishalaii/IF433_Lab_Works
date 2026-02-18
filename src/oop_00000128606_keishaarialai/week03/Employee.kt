@@ -21,4 +21,8 @@ class Employee (val name: String) {
     fun printStatus(){
         println("Karyawan: $name, Rating: $performanceRating")
     }
+
+    //pajak dihitung dari 10% gaji saat ini
+    val tax: Double
+        get() = salary * 0.1
 }
