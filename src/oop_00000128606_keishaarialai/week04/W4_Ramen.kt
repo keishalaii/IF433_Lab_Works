@@ -7,4 +7,8 @@ class Ramen:Restoran() { //harus pakai restorannya. kalo enggak pakai, ga diangg
         super.harga = jml * 120
         println("Ramen $toping laris $harga")
     }
+
+    override public fun jual_makanan() { //pakai override karena penamaan "public fun jual_makanan()" itu sama
+        println("saya jual Ramen enak")
+    }
 }

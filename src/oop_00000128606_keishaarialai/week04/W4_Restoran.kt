@@ -10,7 +10,7 @@ open class Restoran { //pakai open buat kalo punya class anak
         println("\nResto saya $namaResto")
     }
 
-    public fun jual_makanan() {
+    open public fun jual_makanan() { //tambahin open untuk override
         println("saya jual makananan")
     }
 }
