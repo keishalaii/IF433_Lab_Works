@@ -1,7 +1,7 @@
 package oop_00000128606_keishaarialai.week04
 
 fun main(){
-    println("--- Testing Vehilce ---")
+    println("--- Testing Vehicle ---")
     val generalVehicle = Vehicle(brand = "Sepeda Onthel")
     generalVehicle.honk()
     generalVehicle.accelerate()
