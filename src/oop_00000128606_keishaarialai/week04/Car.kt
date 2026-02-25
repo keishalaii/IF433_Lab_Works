@@ -9,4 +9,9 @@ open class car (brand: String, val numberOfDoors: Int): Vehicle(brand) {
     override fun honk() {
         println("TIN TIN! Mobil $brand lewat!")
     }
+
+    override fun accelerate() {
+        super.accelerate() //memanggil logika penambah kecepatan milik parent
+        println("Mobil $brand menggunakan transimisi gigi untuk menambah kecepatan)
+    }
 }
