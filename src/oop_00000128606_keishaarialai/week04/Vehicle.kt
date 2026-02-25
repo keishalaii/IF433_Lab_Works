@@ -6,7 +6,7 @@ open class Vehicle(val brand: String) {
 
     //pakai 'open' supaya bisa di override
     open fun accelerate() {
-        speed += 10
+        speed += 120
         println("$brand melaju dengan kecepatan $speed km/jam")
     }
 
