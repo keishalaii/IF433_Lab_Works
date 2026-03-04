@@ -5,4 +5,8 @@ class Wajib: MataKuliah() {
         super.nama = "OOP"
         println("Matkul ${super.nama} sksnya $sks")
     }
+
+    fun ada_seminar(){
+        println("Wajib ada seminar")
+    }
 }

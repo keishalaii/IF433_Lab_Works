@@ -5,4 +5,8 @@ class Elective: MataKuliah() {
         super.nama = "VR Programming"
         println("Matkul Elective ${super.nama} sksnya $sks")
     }
+
+    fun ada_praktek(){
+        println("Wajib ada praktek")
+    }
 }
