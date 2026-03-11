@@ -4,7 +4,11 @@ fun main() {
     val mhs = Mahasiswa(
         "HMIF",
         15000,
-        20)
+        20,
+        "Calculus",
+        nilaiMatkul = 90)
     mhs.rapat()
+    mhs.penilaian()
+    mhs.keaktifan()
 
 }

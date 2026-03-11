@@ -8,4 +8,7 @@ interface Organisasi {
         get() = budgetRapat * jumlahOrg
 
     fun rapat()
+    fun keaktifan(){
+        println("Ih kamu aktif ya")
+    }
 }
