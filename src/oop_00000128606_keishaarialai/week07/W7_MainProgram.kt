@@ -9,4 +9,13 @@ fun main() {
     println("Nilai ${Mahasiswa.nama} adalah $na")
 
     Mahasiswa.isi_nama_kampus("UMN")
+
+    //format berantakan
+    val Dsn1 = Dosen("Indah", "12345", 2020)
+    println(Dsn1)
+    val Dsn2 = Dsn1.copy(nama = "Budi", nik = "23456")
+    println(Dsn2)
+
+    //cara ambil satu field aja
+    println("Nama Dosen1: ${Dsn1.nama} masuk tahun ${Dsn1.tahunMasuk}")
 }
