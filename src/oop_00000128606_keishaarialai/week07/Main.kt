@@ -16,4 +16,10 @@ fun main() {
     val reg2 = RegularUser("Kei", 20)
     println(reg1) //mencetak memori hash
     println("Sama? ${reg1 == reg2}") //false
+
+    println("\n=== TEST DATA CLASS ===")
+    val data1 = DataUser("Kei", 20)
+    val data2 = DataUser("Kei", 20)
+    println(data1) //otomatis readable format
+    println("Sama? ${data1 == data2}") //true
 }
