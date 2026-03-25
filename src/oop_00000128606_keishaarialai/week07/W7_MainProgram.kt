@@ -18,4 +18,8 @@ fun main() {
 
     //cara ambil satu field aja
     println("Nama Dosen1: ${Dsn1.nama} masuk tahun ${Dsn1.tahunMasuk}")
+
+    println("Matkul fav Kei: " + MataKuliah.OOP.name)
+    println("Index matkul: " + MataKuliah.OOP.ordinal)
+
 }
