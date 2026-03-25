@@ -27,4 +27,12 @@ fun main() {
     println("Hasil copy: $data3")
     val (userName, userAge) = data1 //Destructuring Declaration
     println("Destructured: $userName berumur $userAge")
+
+    println("\n=== TEST SEALED CLASS ===")
+    val response: ApiResponse = ApiResponse.Success ("Data berhasil di tarik!")
+    // ERROR: 'when' expression must be exhaustive
+    val uiMessage = when(response) {
+        is ApiResponse.Success -> "Tampilkan: ${response.data}"
+        is ApiResponse.Error -> "Munculkan alert: ${response.message}"
+    }
 }
