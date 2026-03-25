@@ -10,4 +10,10 @@ fun main() {
     println("\n=== TEST COMPANION OBJECT ===")
     val client = NetworkClient.createClient() //instansiasi lewat factory
     client.connect()
+
+    println("\n=== TEST REGULAR CLASS ===")
+    val reg1 = RegularUser("Kei", 20)
+    val reg2 = RegularUser("Kei", 20)
+    println(reg1) //mencetak memori hash
+    println("Sama? ${reg1 == reg2}") //false
 }
