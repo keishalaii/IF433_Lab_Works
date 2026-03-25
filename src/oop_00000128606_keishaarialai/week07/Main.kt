@@ -22,4 +22,9 @@ fun main() {
     val data2 = DataUser("Kei", 20)
     println(data1) //otomatis readable format
     println("Sama? ${data1 == data2}") //true
+
+    val data3 = data1.copy("Kei", 19)
+    println("Hasil copy: $data3")
+    val (userName, userAge) = data1 //Destructuring Declaration
+    println("Destructured: $userName berumur $userAge")
 }
