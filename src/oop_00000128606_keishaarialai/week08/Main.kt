@@ -35,10 +35,19 @@ fun main() {
     println("Hasil cast + fallback: $safeString")
 
     println("\n=== TEST THE RED BUTTON (!!) ===")
-    val toxicData: String? = null
+//    val toxicData: String? = null
+//    try {
+//        val lenght = toxicData!!.lenght
+//    } catch (e: NullPointerException) {
+//        println("CRASH (NPE)! Jangan Gunakan !! secara sembarangan.")
+//    }
+
+    val apiResponse: Map<String, String?> = mapOf("status" to "200", "token" to null)
     try {
-        val lenght = toxicData!!.lenght
-    } catch (e: NullPointerException) {
-        println("CRASH (NPE)! Jangan Gunakan !! secara sembarangan.")
+        val token = requireNotNull(apiResponse["token"]){
+            "CRITICAL EXCCEPTION: Token otentikasi tidak ditemukan dari server!"
+        }
+    } catch (e: IllegalArgumentException) {
+        println(e.message)
     }
 }
