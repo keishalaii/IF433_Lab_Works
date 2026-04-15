@@ -15,3 +15,5 @@ fun main() {
     println("NIM kamu ${settingKRS.nim} matkul kamu ${settingKRS.kodematkul}")
     settingKRS.matkul_wajib(null)
 }
+
+//NOTE: Safe Casting (as?), Safe Call (?.), Elvis Operator (?:), Not-Null Assertion (!!)
