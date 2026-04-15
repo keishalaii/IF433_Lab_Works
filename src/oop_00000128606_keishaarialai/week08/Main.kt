@@ -2,7 +2,7 @@ package oop_00000128606_keishaarialai.week08
 
 fun main() {
     println("=== TEST SAFE CALLS & ELVIS ===")
-    val emptyOrder = Order(null, 250000)
+    val emptyOrder = Order(null, null)
     val destination = emptyOrder.deliveryDetails?.address?.city?.name ?: "Kotak tidak diketahui."
     println("Tujuan pengiriman: $destination")
 
@@ -12,4 +12,13 @@ fun main() {
         val tax = price * 0.11 "Transaksi Valid. Harga: Rp$price, Pajak: Rp$tax"//blok ini hanya akan jalan jika totalPrice tidak null
     }?: "Transaksi Invalid: Harga belum di-set!"
     println(receipt)
+
+    println("\n=== TEST SAFE CASTING ===")
+    val mixedData: List<Any> = listOf(
+        "Smartphone",
+        1500000,
+        UserProfile("Keisha", null),
+        "Laptop",
+        4500000.0
+    )
 }
