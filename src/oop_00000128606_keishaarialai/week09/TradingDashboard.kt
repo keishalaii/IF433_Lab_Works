@@ -31,3 +31,16 @@ fun main() {
     worstPerformersString.forEach { println(it) }
     println("\nTraded Pairs: $uniquePairs")
 }
+
+//OUTPUT
+//=== CRYPTO TRADING DASHBOARD ===
+//Top Winners:
+//WIN [BTCUSDT - LONG]: +15.5% ROE (Lev: 20x)
+//WIN [BNBUSDT - LONG]: +8.4% ROE (Lev: 10x)
+
+//Worst Losses:
+//LOSS [BTCUSDT - SHORT]: -25.0% ROE (Lev: 50x)
+//LOSS [ETHUSDT - SHORT]: -5.2% ROE (Lev: 10x)
+//LOSS [ETHUSDT - LONG]: -2.1% ROE (Lev: 20x)
+
+//Traded Pairs: [BTCUSDT, ETHUSDT, SOLUSDT, BNBUSDT]
