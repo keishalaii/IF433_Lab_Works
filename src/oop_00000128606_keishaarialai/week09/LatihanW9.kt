@@ -76,4 +76,19 @@ fun main() {
     val pangkat = {a: Int -> a*a}
     val hasilPangkat:(Int) -> Int = {it * it}
     println("Hasil pangkat 5 adalah ${hasilPangkat(5)}")
+
+    println("\n========= FOREACH BIASA =========")
+    for (a in ArMatkul) {
+        println(a)
+    }
+
+    println("\n========= FOREACH IT =========")
+    ArMatkul.forEach {
+        println(it)
+    }
+
+    println("\n========= FOREACH VARIABLE =========")
+    ArMatkul.forEach {
+        mk -> println(mk)
+    }
 }
