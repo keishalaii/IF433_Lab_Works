@@ -60,4 +60,20 @@ fun main() {
     ArKHS["Nika"] = 92 //edit
     ArKHS["Cinta"] = 99 //add
     println(ArKHS)
+
+    println("\n========= LAMBDA =========")
+    //function biasa
+    fun tambah(a:Int, b:Int):Int {
+        return a + b
+    }
+    println("Hasil penambahan 5+3 adalah ${tambah(a = 5, b = 3)}")
+
+    //function lambda -> tulisnya horizontal
+    val kurang = { a: Int, b: Int -> a-b }
+    println("Hasil pengurangan 5-3 adalah ${kurang(5, 3)}")
+
+    println("\n========= LAMBDA { IT } =========")
+    val pangkat = {a: Int -> a*a}
+    val hasilPangkat:(Int) -> Int = {it * it}
+    println("Hasil pangkat 5 adalah ${hasilPangkat(5)}")
 }
