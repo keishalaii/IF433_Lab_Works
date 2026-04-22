@@ -36,4 +36,28 @@ fun main() {
     ArMahasiswa.remove("Udin")
     ArMahasiswa.add("Udin") //udin jadi dipindahin di akhir krn udh di remove lalu di add lagi
     println(ArMahasiswa)
+
+    println("\n========= MAP IMUT =========")
+    val ArResto = mapOf(
+        "Ayam" to 5000,
+        "Bakpao" to 3000,
+        "Sayur Asem" to 2500
+    )
+    println("Banyak menu ${ArResto.size}")
+    println("Harga Ayam ${ArResto["Ayam"]}")
+    println("List makanan: ${ArResto.keys}")
+    println("List harga: ${ArResto.values}")
+    println(ArResto)
+
+    println("\n========= MAP MUTABLE =========")
+    val ArKHS = mutableMapOf(
+        "Toni" to 80,
+        "Nika" to 85,
+        "Ara" to 87,
+        "Davin" to 90
+    )
+    ArKHS.remove("Ara")
+    ArKHS["Nika"] = 92 //edit
+    ArKHS["Cinta"] = 99 //add
+    println(ArKHS)
 }
