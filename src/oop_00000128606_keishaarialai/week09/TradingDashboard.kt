@@ -9,4 +9,6 @@ fun main() {
         TradeLog("BNBUSDT", "LONG", 10, 8.4, "CLOSED"),
         TradeLog("ETHUSDT", "LONG", 20, -2.1, "CLOSED")
     )
+
+    val closedTrades = tradeHistory.filter { it.status == "CLOSED" }
 }
