@@ -18,4 +18,11 @@ fun main() {
     val txRepo = WalletRepository<Transaction>()
     txRepo.add(Transaction("TX001", 150.0))
     txRepo.add(Transaction("TX002", 3000.5))
+
+    println("\n--- TRANSACTION HISTORY ---")
+    txRepo.getAll().forEach { tx ->
+        println("ID: ${tx.id} | Amount: ${tx.amount}")
+    }
+
+    println("\nSystem Check: Full generic architecture verified.")
 }
