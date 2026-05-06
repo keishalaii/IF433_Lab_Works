@@ -40,4 +40,24 @@ fun main() {
         sumOf { it.powerLoad }
     }
     println("Total beban daya saat ini: $totalPower Watt")
+
+    //testing
+    println("\n=== DETAIL SEMUA PERANGKAT ===")
+    homeDevices.forEach { device ->
+        println(device.diagnose())
+    }
 }
+
+//HASIL OUTPUT:
+
+//(LOG) Kamera terhubung
+//[DIAGNOSTIK] Ezviz Outdoor | Kategori: Camera | Status: Online | Daya: 5 Watt
+//=== SMART HOME DASHBOARD SUMMARY ===
+//Total perangkat terdaftar: 4 perangkat
+//Total beban daya saat ini: 827 Watt
+
+//=== DETAIL SEMUA PERANGKAT ===
+//[DIAGNOSTIK] Philips WiZ Living Room | Kategori: Lighting | Status: Online | Daya: 12 Watt
+//[DIAGNOSTIK] Ezviz Outdoor | Kategori: Camera | Status: Online | Daya: 5 Watt
+//[DIAGNOSTIK] Daikin Inverter (Kabel 3x2.5) | Kategori: HVAC | Status: Offline | Daya: 800 Watt
+//[DIAGNOSTIK] Picolo's Auto Feeder | Kategori: Pet Care | Status: Online | Daya: 10 Watt
