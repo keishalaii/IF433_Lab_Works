@@ -29,4 +29,11 @@ fun main() {
     } finally {
         println("Siklus pengecekan dispenser pagi selesai.")
     }
+
+    println("\n=== SIMULASI JADWAL MAKAN 2: SORE ===")
+    // Pemilik mengisi ulang pakan di sore hari menjadi 1000 gr
+    val soreAvailableStock = 1000
+    runCatching {
+        dispenseKibble(requestedGram = 30, availableGram = soreAvailableStock, isJammed = false)
+    }
 }
