@@ -45,3 +45,12 @@ fun main() {
             println("(Opsional: Berikan chicken jerky secara manual)")
         }
 }
+
+//TESTING
+//=== SIMULASI JADWAL MAKAN 1: PAGI ===
+//Sistem Error: Kibble tidak cukup! Diminta 80 gr, sisa 50 gr
+//Siklus pengecekan dispenser pagi selesai.
+//
+//=== SIMULASI JADWAL MAKAN 2: SORE ===
+//Kibble berhasil dikeluarkan!
+//Makan sore sukses! Sisa stok kibble: 970 gr
