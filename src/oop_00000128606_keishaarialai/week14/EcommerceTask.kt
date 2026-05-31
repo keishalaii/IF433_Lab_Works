@@ -2,23 +2,39 @@ package oop_00000128606_keishaarialai.week14
 
 import java.io.File
 
-class BadOrderProcessor {
-    // VIOLATION: Hardcoded File I/O (DIP), Melakukan kalkulasi + I/O + Notifikasi sekali
-    private val file = File("orders.csv")
+// ===== INTERFACES untuk SRP & DIP =====
+interface OrderRepository {
+    fun saveOrder(itemName: String, finalPrice: Double, customerType: String)
+}
 
-    fun processOrder(itemName: String, basePrice: Double, customerType: String) {
-        // VIOLATION: Kaku jika ada tipe customer/diskon baru di masa depan (OCP)
-        val finalPrice = when (customerType) {
-            "REGULAR" -> basePrice
-            "VIP" -> basePrice * 0.90 // Diskon 10%
-            else -> basePrice
+interface NotificationService {
+    fun sendNotification(itemName: String)
+}
+
+// ===== IMPLEMENTATIONS =====
+class CsvOrderRepository(private val filePath: String = "orders.csv") : OrderRepository {
+    override fun saveOrder(itemName: String, finalPrice: Double, customerType: String) {
+        File(filePath).printWriter().use { writer ->
+            writer.appendText("$itemName, $finalPrice, $customerType\n")
         }
-        println("Memproses pesanan $itemName seharga $finalPrice")
+        println("Order saved to CSV: $itemName, $finalPrice, $customerType")
+    }
+}
 
-        // VIOLATION: SRP/DIP: Menulis file langsung di class bisnis
-        file.appendText("$itemName, $finalPrice, $customerType\n")
-
-        // VIOLATION: SRP/DIP: Notifikasi terikat kuat dengan sistem order
+class EmailNotifier : NotificationService {
+    override fun sendNotification(itemName: String) {
         println("Email terkirim: Pesanan $itemName Anda telah dikonfirmasi!")
+    }
+}
+
+// ===== REFACTORED ORDER PROCESSOR =====
+class SafeOrderProcessor(
+    private val repo: OrderRepository,
+    private val notifier: NotificationService
+) {
+    fun processOrder(itemName: String, finalPrice: Double, customerType: String) {
+        println("Memproses pesanan $itemName seharga $finalPrice")
+        repo.saveOrder(itemName, finalPrice, customerType)
+        notifier.sendNotification(itemName)
     }
 }
