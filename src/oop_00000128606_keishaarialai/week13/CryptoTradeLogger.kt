@@ -58,4 +58,8 @@ fun main() {
     // Inject malformed data untuk testing robustness
     File("crypto_trades.csv").appendText("CORRUPT_ID,DOGEUSDT,Hold,XX,YY\n")
     println("Baris data koruptif berhasil di-inject untuk testing...")
+
+    // Load data dan hitung total PnL
+    val loadedData = loadTrades("crypto_trades.csv")
+    val totalPnl = loadedData.sumOf { it.pnl }
 }
