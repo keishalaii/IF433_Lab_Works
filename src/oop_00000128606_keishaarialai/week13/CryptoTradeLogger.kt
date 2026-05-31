@@ -1,6 +1,7 @@
 package oop_00000128606_keishaarialai.week13
 
 import java.io.File
+import java.io.FileNotFoundException
 
 data class TradeRecord(val id: Int, val symbol: String, val type: String, val margin: Double, val pnl: Double)
 
@@ -42,4 +43,15 @@ fun loadTrades(path: String): List<TradeRecord> {
         println("Error: File $path tidak ditemukan!")
         emptyList()
     }
+}
+
+//mock data
+fun main() {
+    // Simulated trade records
+    val trades = listOf(
+        TradeRecord(id = 1, symbol = "BTCUSDT", type = "Long", margin = 1000.0, pnl = 250.0),
+        TradeRecord(id = 2, symbol = "ETHUSDT", type = "Short", margin = 500.0, pnl = 180.0),
+        TradeRecord(id = 3, symbol = "SOLUSDT", type = "Long", margin = 300.0, pnl = -45.0)
+    )
+    saveTrades(trades, path = "crypto_trades.csv")
 }
