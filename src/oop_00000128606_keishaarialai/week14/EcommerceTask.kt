@@ -11,7 +11,25 @@ interface NotificationService {
     fun sendNotification(itemName: String)
 }
 
-// ===== IMPLEMENTATIONS =====
+// ===== INTERFACE untuk OCP (Pricing Strategy) =====
+interface PricingStrategy {
+    fun calculate(price: Double): Double
+    fun getTypeName(): String
+}
+
+// ===== PRICING STRATEGY IMPLEMENTATIONS =====
+class RegularPricing : PricingStrategy {
+    override fun calculate(price: Double): Double = price
+    override fun getTypeName(): String = "REGULAR"
+}
+
+class VipPricing : PricingStrategy {
+    override fun calculate(price: Double): Double = price * 0.90
+    override fun getTypeName(): String = "VIP"
+}
+
+// ===== IMPLEMENTATIONS for SRP/DIP =====
+
 class CsvOrderRepository(private val filePath: String = "orders.csv") : OrderRepository {
     override fun saveOrder(itemName: String, finalPrice: Double, customerType: String) {
         File(filePath).printWriter().use { writer ->
@@ -27,14 +45,28 @@ class EmailNotifier : NotificationService {
     }
 }
 
-// ===== REFACTORED ORDER PROCESSOR =====
+// ===== REFACTORED ORDER PROCESSOR (FINAL) =====
 class SafeOrderProcessor(
     private val repo: OrderRepository,
     private val notifier: NotificationService
 ) {
-    fun processOrder(itemName: String, finalPrice: Double, customerType: String) {
-        println("Memproses pesanan $itemName seharga $finalPrice")
+    // OCP: Menerima PricingStrategy, bukan String customerType
+    fun processOrder(itemName: String, basePrice: Double, strategy: PricingStrategy) {
+        val finalPrice = strategy.calculate(basePrice)
+        val customerType = strategy.getTypeName()
+
+        println("Memproses pesanan $itemName seharga $finalPrice (tipe: $customerType)")
         repo.saveOrder(itemName, finalPrice, customerType)
         notifier.sendNotification(itemName)
     }
+}
+
+// ===== MAIN FUNCTION =====
+fun main() {
+    val csvRepo = CsvOrderRepository()
+    val emailNotifier = EmailNotifier()
+    val orderProcessor = SafeOrderProcessor(csvRepo, emailNotifier)
+
+    orderProcessor.processOrder("Laptop", 15000.0, RegularPricing())
+    orderProcessor.processOrder("Smartphone", 8000.0, VipPricing())
 }
