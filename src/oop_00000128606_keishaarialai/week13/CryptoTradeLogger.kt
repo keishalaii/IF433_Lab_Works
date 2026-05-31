@@ -54,4 +54,8 @@ fun main() {
         TradeRecord(id = 3, symbol = "SOLUSDT", type = "Long", margin = 300.0, pnl = -45.0)
     )
     saveTrades(trades, path = "crypto_trades.csv")
+
+    // Inject malformed data untuk testing robustness
+    File("crypto_trades.csv").appendText("CORRUPT_ID,DOGEUSDT,Hold,XX,YY\n")
+    println("Baris data koruptif berhasil di-inject untuk testing...")
 }
