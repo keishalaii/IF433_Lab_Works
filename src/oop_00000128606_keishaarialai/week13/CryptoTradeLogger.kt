@@ -1,5 +1,7 @@
 package oop_00000128606_keishaarialai.week13
 
+import java.io.File
+
 data class TradeRecord(val id: Int, val symbol: String, val type: String, val margin: Double, val pnl: Double)
 
 // Serialization (Object -> CSV)
@@ -20,4 +22,14 @@ fun fromCsvTrade(line: String): TradeRecord? {
         println("(Log) Data korup diabaikan: $line")
         null
     }
+}
+
+// Write System dengan use block dan printWriter
+fun saveTrades(trades: List<TradeRecord>, path: String) {
+    File(path).printWriter().use { writer ->
+        trades.forEach { trade ->
+            writer.println(trade.toCsv())
+        }
+    }
+    println("Trades berhasil disimpan ke $path")
 }
