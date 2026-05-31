@@ -62,4 +62,12 @@ fun main() {
     // Load data dan hitung total PnL
     val loadedData = loadTrades("crypto_trades.csv")
     val totalPnl = loadedData.sumOf { it.pnl }
+
+    println("\n=== VALID TRADE RECORDS ===")
+    loadedData.forEach { trade ->
+        println("ID: ${trade.id}, Symbol: ${trade.symbol}, Type: ${trade.type}, Margin: ${trade.margin}, PnL: ${trade.pnl}")
+    }
+
+    // Cetak total PnL bersih
+    println("\n==== TOTAL PnL BERSIH: $totalPnl ====")
 }
