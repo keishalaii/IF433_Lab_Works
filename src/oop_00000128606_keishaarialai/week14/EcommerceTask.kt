@@ -1,6 +1,7 @@
 package oop_00000128606_keishaarialai.week14
 
 import java.io.File
+import java.io.FileWriter
 
 // ===== INTERFACES untuk SRP & DIP =====
 interface OrderRepository {
@@ -32,8 +33,15 @@ class VipPricing : PricingStrategy {
 
 class CsvOrderRepository(private val filePath: String = "orders.csv") : OrderRepository {
     override fun saveOrder(itemName: String, finalPrice: Double, customerType: String) {
-        File(filePath).printWriter().use { writer ->
-            writer.appendText("$itemName, $finalPrice, $customerType\n")
+        // Perbaikan 1: Gunakan FileWriter dengan append mode
+        val file = File(filePath)
+        val isNewFile = !file.exists()
+
+        FileWriter(filePath, true).use { writer ->
+            if (isNewFile) {
+                writer.write("Item Name,Final Price,Customer Type\n")
+            }
+            writer.write("$itemName,$finalPrice,$customerType\n")
         }
         println("Order saved to CSV: $itemName, $finalPrice, $customerType")
     }
